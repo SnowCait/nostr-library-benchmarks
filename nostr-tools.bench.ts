@@ -1,9 +1,11 @@
 import {
+  Event,
   finalizeEvent,
   generateSecretKey,
   getEventHash,
   getPublicKey,
   serializeEvent,
+  verifiedSymbol,
   verifyEvent,
 } from "npm:nostr-tools";
 
@@ -48,6 +50,7 @@ Deno.bench("verifyEvent", (b) => {
     { kind: 1, content: "", tags: [], created_at: 0 },
     seckey,
   );
+  (event as Event)[verifiedSymbol] = undefined;
 
   b.start();
 

@@ -1,34 +1,34 @@
 import { EventBuilder, Keys, loadWasmAsync } from "npm:@rust-nostr/nostr";
 
 Deno.bench("generate", async (b) => {
-    await loadWasmAsync();
+  await loadWasmAsync();
 
-    b.start();
+  b.start();
 
-    Keys.generate();
+  Keys.generate();
 
-    b.end();
+  b.end();
 });
 
 Deno.bench("toEvent", async (b) => {
-    await loadWasmAsync();
-    const keys = Keys.generate();
+  await loadWasmAsync();
+  const keys = Keys.generate();
 
-    b.start();
+  b.start();
 
-    new EventBuilder(1, "", []).toEvent(keys).asJson();
+  new EventBuilder(1, "", []).toEvent(keys).asJson();
 
-    b.end();
+  b.end();
 });
 
 Deno.bench("verify", async (b) => {
-    await loadWasmAsync();
-    const keys = Keys.generate();
-    const event = new EventBuilder(1, "", []).toEvent(keys);
+  await loadWasmAsync();
+  const keys = Keys.generate();
+  const event = new EventBuilder(1, "", []).toEvent(keys);
 
-    b.start();
+  b.start();
 
-    event.verify();
+  event.verify();
 
-    b.end();
+  b.end();
 });

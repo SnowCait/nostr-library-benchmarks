@@ -31,7 +31,7 @@ Deno.bench("isValid", async (b) => {
 
   b.start();
 
-  event.isValid;
+  event.verifySignature(false);
 
   b.end();
 });
