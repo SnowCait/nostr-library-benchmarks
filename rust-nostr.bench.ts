@@ -1,5 +1,13 @@
 import { EventBuilder, Keys, loadWasmAsync } from "npm:@rust-nostr/nostr";
 
+Deno.bench("loadWasmAsync", async (b) => {
+  b.start();
+
+  await loadWasmAsync();
+
+  b.end();
+});
+
 Deno.bench("generate", async (b) => {
   await loadWasmAsync();
 
