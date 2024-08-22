@@ -6,6 +6,7 @@
       "npm:@nostr-dev-kit/ndk": "npm:@nostr-dev-kit/ndk@2.10.0",
       "npm:@rust-nostr/nostr": "npm:@rust-nostr/nostr@0.34.0",
       "npm:nostr-tools": "npm:nostr-tools@2.7.2",
+      "npm:nostr-wasm": "npm:nostr-wasm@0.1.0",
       "npm:rx-nostr-crypto": "npm:rx-nostr-crypto@3.1.1"
     },
     "npm": {
