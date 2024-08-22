@@ -18,7 +18,7 @@ jobs:
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
-      - run: deno bench
+      - run: deno bench --allow-env
 
       - uses: actions/setup-go@v5
         with:
