@@ -18,7 +18,7 @@ Deno.bench("sign", async (b) => {
   b.end();
 });
 
-Deno.bench("isValid", async (b) => {
+Deno.bench("verifySignature", async (b) => {
   const seckey = generateSecretKey();
   const signer = new NDKPrivateKeySigner(seckey);
   const ndk = new NDK({ signer });
