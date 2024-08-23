@@ -20,7 +20,6 @@ jobs:
           deno-version: v1.x
       - run: deno bench --allow-env
 
-      - uses: actions/setup-go@v5
-        with:
-          go-version: '1.23'
       - run: go test -bench .
+
+      - run: dotnet run --configuration Release
