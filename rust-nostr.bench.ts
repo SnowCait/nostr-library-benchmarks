@@ -1,11 +1,19 @@
-import { EventBuilder, Keys, loadWasmAsync } from "npm:@rust-nostr/nostr";
+import {
+  EventBuilder,
+  Keys,
+  loadWasmAsync,
+  loadWasmSync,
+} from "npm:@rust-nostr/nostr";
+import { finalizeEvent } from "npm:nostr-tools";
+import { hexToBytes } from "npm:@noble/hashes/utils";
+import { Event } from "npm:@rust-nostr/nostr";
 
-Deno.bench("loadWasmAsync", async (b) => {
-  b.start();
+Deno.bench("loadWasmSync", () => {
+  loadWasmSync();
+});
 
+Deno.bench("loadWasmAsync", async () => {
   await loadWasmAsync();
-
-  b.end();
 });
 
 Deno.bench("generate", async (b) => {
@@ -37,6 +45,22 @@ Deno.bench("verify", async (b) => {
   b.start();
 
   event.verify();
+
+  b.end();
+});
+
+Deno.bench("verify with fromJson", async (b) => {
+  await loadWasmAsync();
+  const keys = Keys.generate();
+  const event = finalizeEvent(
+    { kind: 1, content: "", tags: [], created_at: 0 },
+    hexToBytes(keys.secretKey.toHex()),
+  );
+
+  b.start();
+
+  const json = JSON.stringify(event);
+  Event.fromJson(json).verify();
 
   b.end();
 });
