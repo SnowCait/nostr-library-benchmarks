@@ -121,6 +121,10 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 | Verify                | 268.171 us | 0.6488 us | 0.6069 us |
 ```
 
+## Other benchmarks
+
+See [wiki](https://github.com/SnowCait/nostr-library-benchmarks/wiki)
+
 ## Contribution
 
 Welcome pull requests to add libraries or functions.
