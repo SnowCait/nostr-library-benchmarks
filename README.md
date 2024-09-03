@@ -139,6 +139,15 @@ rustup install nightly
 cargo +nightly bench
 ```
 
+```
+     Running unittests rust-nostr.rs (target/release/deps/rust_nostr-7308c1fac91d5fd8)
+running 3 tests
+test tests::bench_generate ... bench:      48,993.31 ns/iter (+/- 539.17)
+test tests::bench_to_event ... bench:      28,504.62 ns/iter (+/- 353.35)
+test tests::bench_verify   ... bench:      37,940.99 ns/iter (+/- 345.95)
+test result: ok. 0 passed; 0 failed; 0 ignored; 3 measured; 0 filtered out; finished in 0.63s
+```
+
 ## Other benchmarks
 
 See [wiki](https://github.com/SnowCait/nostr-library-benchmarks/wiki)
