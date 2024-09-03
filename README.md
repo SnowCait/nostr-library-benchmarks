@@ -5,7 +5,7 @@ Benchmark Nostr libraries' functions.
 ## Benchamarks
 
 Full log is
-[here](https://github.com/SnowCait/nostr-library-benchmarks/actions/runs/10532721144/job/29187417272).
+[here](https://github.com/SnowCait/nostr-library-benchmarks/actions/workflows/benchmark.yml).
 
 ### TypeScript (JavaScript)
 
