@@ -9,6 +9,8 @@ Full log is
 
 ### TypeScript (JavaScript)
 
+Install [Deno](https://deno.com/).
+
 ```
 deno bench --allow-env
 ```
@@ -79,6 +81,8 @@ verify                          1.46 ms/iter         685.6     (1.33 ms … 2.56
 
 ### Go
 
+Install [Go](https://go.dev/).
+
 ```
 go test -bench .
 ```
@@ -94,6 +98,8 @@ ok  	github.com/SnowCait/nostr-library-benchmarks	5.223s
 ```
 
 ### C#
+
+Install [.NET SDK](https://dotnet.microsoft.com/).
 
 ```
 dotnet run --configuration Release
@@ -119,6 +125,18 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 | Create                |   3.258 us | 0.0221 us | 0.0196 us |
 | ComputeIdAndSignAsync | 632.257 us | 1.3908 us | 1.3009 us |
 | Verify                | 268.171 us | 0.6488 us | 0.6069 us |
+```
+
+### Rust
+
+Install [Rust](https://www.rust-lang.org/).
+
+```
+rustup install nightly
+```
+
+```
+cargo +nightly bench
 ```
 
 ## Other benchmarks

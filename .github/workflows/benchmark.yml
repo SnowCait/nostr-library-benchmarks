@@ -15,11 +15,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # TypeScript
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
       - run: deno bench --allow-env
 
+      # Go
       - run: go test -bench .
 
+      # C#
       - run: dotnet run --configuration Release
+
+      # Rust
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: nightly
+      - run: cargo +nightly bench
+

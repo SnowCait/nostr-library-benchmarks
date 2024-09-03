@@ -1,0 +1,11 @@
+[package]
+name = "nostr-library-benchmarks"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+nostr = "0.34.1"
+
+[[bin]]
+name = "rust-nostr"
+path = "rust-nostr.rs"
