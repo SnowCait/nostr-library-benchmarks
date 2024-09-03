@@ -129,7 +129,10 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 
 ### Rust
 
-Install [Rust](https://www.rust-lang.org/).
+Install [Rust](https://www.rust-lang.org/) and
+[Build Tools](https://visualstudio.microsoft.com/ja/visual-cpp-build-tools/).
+
+Add PATH of clang if needed.
 
 ```
 rustup install nightly
