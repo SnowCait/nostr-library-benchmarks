@@ -7,7 +7,7 @@ import {
   serializeEvent,
   verifiedSymbol,
   verifyEvent,
-} from "npm:nostr-tools";
+} from "nostr-tools";
 
 Deno.bench("generateSecretKey", () => {
   generateSecretKey();

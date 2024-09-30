@@ -4,7 +4,7 @@ import {
   seckeySigner,
   verify,
 } from "npm:rx-nostr-crypto";
-import { generateSecretKey } from "npm:nostr-tools";
+import { generateSecretKey } from "nostr-tools";
 import { bytesToHex } from "npm:@noble/hashes/utils";
 import { getSignature } from "npm:rx-nostr-crypto";
 

@@ -1,5 +1,5 @@
 import NDK, { NDKEvent, NDKPrivateKeySigner } from "npm:@nostr-dev-kit/ndk";
-import { generateSecretKey } from "npm:nostr-tools";
+import { generateSecretKey } from "nostr-tools";
 
 Deno.bench("sign", async (b) => {
   const seckey = generateSecretKey();

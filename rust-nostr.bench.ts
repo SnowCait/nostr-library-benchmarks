@@ -4,7 +4,7 @@ import {
   loadWasmAsync,
   loadWasmSync,
 } from "npm:@rust-nostr/nostr";
-import { finalizeEvent } from "npm:nostr-tools";
+import { finalizeEvent } from "nostr-tools";
 import { hexToBytes } from "npm:@noble/hashes/utils";
 import { Event } from "npm:@rust-nostr/nostr";
 

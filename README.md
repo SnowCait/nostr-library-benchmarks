@@ -12,8 +12,10 @@ Full log is
 Install [Deno](https://deno.com/).
 
 ```
-deno bench --allow-env
+deno bench
 ```
+
+If you want to run NDK benchmark, add `--allow-env` flag at your own risk.
 
 ```
 cpu: AMD EPYC 7763 64-Core Processor
