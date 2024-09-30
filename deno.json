@@ -1,0 +1,3 @@
+{
+  "imports": { "nostr-tools": "npm:nostr-tools@^2.7.2" }
+}
