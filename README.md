@@ -18,67 +18,82 @@ deno bench
 If you want to run NDK benchmark, add `--allow-env` flag at your own risk.
 
 ```
-cpu: AMD EPYC 7763 64-Core Processor
-runtime: deno 1.46.1 (x86_64-unknown-linux-gnu)
+    CPU | AMD EPYC 7763 64-Core Processor
+Runtime | Deno 1.46.3 (x86_64-unknown-linux-gnu)
 
 file:///home/runner/work/nostr-library-benchmarks/nostr-library-benchmarks/javascript-api.bench.ts
-benchmark       time (avg)        iter/s             (min … max)       p75       p99      p995
----------------------------------------------------------------- -----------------------------
-new URL        432.83 ns/iter   2,310,397.6 (423.28 ns … 512.93 ns) 432.62 ns 499.58 ns 512.93 ns
-JSON.parse      74.57 ns/iter  13,409,712.1   (64.3 ns … 113.94 ns) 78.48 ns 88.02 ns 103.46 ns
+
+benchmark    time/iter (avg)        iter/s      (min … max)           p75      p99     p995
+------------ ----------------------------- --------------------- --------------------------
+new URL             447.8 ns     2,233,000 (429.9 ns … 676.9 ns) 444.1 ns 604.2 ns 676.9 ns
+JSON.parse           67.2 ns    14,890,000 ( 62.7 ns … 111.3 ns)  66.8 ns  88.7 ns  96.9 ns
 
 
 file:///home/runner/work/nostr-library-benchmarks/nostr-library-benchmarks/ndk.bench.ts
-benchmark            time (avg)        iter/s             (min … max)       p75       p99      p995
---------------------------------------------------------------------- -----------------------------
-sign                   2.4 ms/iter         416.7     (2.12 ms … 4.45 ms) 2.33 ms 4.25 ms 4.45 ms
-verifySignature       1.58 ms/iter         631.8     (1.37 ms … 2.62 ms) 1.58 ms 2.55 ms 2.62 ms
+
+benchmark         time/iter (avg)        iter/s      (min … max)           p75      p99     p995
+----------------- ----------------------------- --------------------- --------------------------
+sign                       2.5 ms         404.4 (  2.2 ms …   4.5 ms)   2.5 ms   4.2 ms   4.5 ms
+verifySignature            1.6 ms         612.8 (  1.5 ms …   2.7 ms)   1.6 ms   2.7 ms   2.7 ms
 
 
 file:///home/runner/work/nostr-library-benchmarks/nostr-library-benchmarks/nostr-tools.bench.ts
-benchmark              time (avg)        iter/s             (min … max)       p75       p99      p995
------------------------------------------------------------------------ -----------------------------
-generateSecretKey       5.31 µs/iter     188,153.2       (5.2 µs … 6.5 µs) 5.26 µs 6.5 µs 6.5 µs
-getPublicKey          216.93 µs/iter       4,609.8 (194.46 µs … 684.54 µs) 209.98 µs 418.55 µs 443.42 µs
-getEventHash           11.88 µs/iter      84,210.5   (7.84 µs … 115.93 µs) 11.78 µs 45.55 µs 48.75 µs
-finalizeEvent           2.18 ms/iter         459.5     (2.02 ms … 4.13 ms) 2.22 ms 2.48 ms 2.74 ms
-verifyEvent              1.5 ms/iter         665.3     (1.34 ms … 2.74 ms) 1.53 ms 2.63 ms 2.74 ms
-serializeEvent           2.5 µs/iter     399,680.3    (1.47 µs … 55.84 µs) 1.8 µs 30.73 µs 38.86 µs
-JSON.stringify          2.98 µs/iter     336,134.5    (2.13 µs … 13.76 µs) 3.17 µs 5.09 µs 7.32 µs
-JSON.parse              3.06 µs/iter     327,011.1     (2.13 µs … 5.79 µs) 3.33 µs 5.01 µs 5.69 µs
+
+benchmark           time/iter (avg)        iter/s      (min … max)           p75      p99     p995
+------------------- ----------------------------- --------------------- --------------------------
+generateSecretKey            5.6 µs       179,500 (  4.7 µs …   1.0 ms)   5.4 µs  12.3 µs  15.2 µs
+getPublicKey               228.0 µs         4,386 (197.9 µs …   1.0 ms) 224.7 µs 441.0 µs 477.9 µs
+getEventHash                13.2 µs        75,980 (  7.3 µs … 168.7 µs)  13.2 µs  57.7 µs  60.4 µs
+finalizeEvent                2.3 ms         432.1 (  2.1 ms …   6.2 ms)   2.3 ms   4.5 ms   5.1 ms
+verifyEvent                  1.5 ms         655.8 (  1.4 ms …   2.9 ms)   1.5 ms   2.4 ms   2.9 ms
+serializeEvent               2.6 µs       382,800 (  1.5 µs …  49.0 µs)   2.0 µs  32.9 µs  34.7 µs
+JSON.stringify               3.6 µs       280,300 (  2.6 µs …   6.0 µs)   3.9 µs   5.6 µs   5.7 µs
+JSON.parse                   3.4 µs       293,000 (  2.5 µs …  13.1 µs)   3.8 µs   5.7 µs   6.8 µs
 
 
 file:///home/runner/work/nostr-library-benchmarks/nostr-library-benchmarks/nostr-wasm.bench.ts
-benchmark              time (avg)        iter/s             (min … max)       p75       p99      p995
------------------------------------------------------------------------ -----------------------------
-initNostrWasm           4.34 ms/iter         230.5     (3.71 ms … 6.68 ms) 4.82 ms 6.46 ms 6.68 ms
-generateSecretKey       6.95 µs/iter     143,843.5    (4.36 µs … 15.51 µs) 8.09 µs 14.37 µs 15.51 µs
-getPublicKey          269.97 µs/iter       3,704.1 (249.15 µs … 477.06 µs) 258.67 µs 471.21 µs 477.06 µs
-finalizeEvent         550.54 µs/iter       1,816.4 (505.98 µs … 991.73 µs) 528.5 µs 963.13 µs 991.73 µs
-verifyEvent           445.97 µs/iter       2,242.3 (403.17 µs … 747.47 µs) 438.43 µs 733.18 µs 747.47 µs
+
+benchmark           time/iter (avg)        iter/s      (min … max)           p75      p99     p995
+------------------- ----------------------------- --------------------- --------------------------
+initNostrWasm                5.5 ms         180.3 (  4.8 ms …   9.4 ms)   6.1 ms   8.4 ms   9.4 ms
+generateSecretKey            6.9 µs       145,400 (  4.9 µs …  11.0 µs)   7.6 µs  10.7 µs  11.0 µs
+getPublicKey               260.6 µs         3,837 (241.6 µs … 453.8 µs) 257.1 µs 453.8 µs 453.8 µs
+finalizeEvent              536.4 µs         1,864 (496.4 µs … 902.6 µs) 524.6 µs 902.6 µs 902.6 µs
+verifyEvent                442.0 µs         2,262 (396.3 µs … 762.6 µs) 432.0 µs 762.6 µs 762.6 µs
+
+
+file:///home/runner/work/nostr-library-benchmarks/nostr-library-benchmarks/nostrify.bench.ts
+
+benchmark      time/iter (avg)        iter/s      (min … max)           p75      p99     p995
+-------------- ----------------------------- --------------------- --------------------------
+NSecSigner             98.0 ns    10,200,000 ( 69.0 ns …  77.8 µs)  81.0 ns 350.0 ns 592.0 ns
+getPublicKey          226.9 µs         4,407 (201.3 µs …   1.0 ms) 223.9 µs 459.8 µs 495.7 µs
+signEvent               2.3 ms         427.8 (  2.1 ms …   4.4 ms)   2.3 ms   4.2 ms   4.3 ms
 
 
 file:///home/runner/work/nostr-library-benchmarks/nostr-library-benchmarks/rust-nostr.bench.ts
-benchmark                 time (avg)        iter/s             (min … max)       p75       p99      p995
--------------------------------------------------------------------------- -----------------------------
-loadWasmSync                 81 ns/iter  12,345,679.0     (69 ns … 348.82 µs) 80 ns 100 ns 110 ns
-loadWasmAsync            147.82 ns/iter   6,765,030.5 (131.05 ns … 449.62 ns) 139.94 ns 424.75 ns 437.21 ns
-generate                 279.87 µs/iter       3,573.1 (275.96 µs … 857.11 µs) 278.62 µs 308.26 µs 326.1 µs
-toEvent                  168.57 µs/iter       5,932.1 (160.23 µs … 686.08 µs) 168.53 µs 245.11 µs 302.42 µs
-verify                   296.11 µs/iter       3,377.1 (272.72 µs … 636.44 µs) 297.44 µs 351.72 µs 364.9 µs
-verify with fromJson     368.76 µs/iter       2,711.8 (344.42 µs … 676.96 µs) 365.1 µs 646.1 µs 676.96 µs
+
+benchmark              time/iter (avg)        iter/s      (min … max)           p75      p99     p995
+---------------------- ----------------------------- --------------------- --------------------------
+loadWasmSync                   82.0 ns    12,200,000 ( 69.0 ns … 128.1 µs)  80.0 ns 100.0 ns 111.0 ns
+loadWasmAsync                 147.0 ns     6,803,000 (134.2 ns … 658.7 ns) 144.5 ns 406.9 ns 472.3 ns
+generate                      277.2 µs         3,607 (264.0 µs … 863.4 µs) 275.5 µs 504.3 µs 523.8 µs
+toEvent                       168.0 µs         5,953 (155.9 µs … 705.4 µs) 170.2 µs 308.4 µs 341.9 µs
+verify                        285.2 µs         3,507 (265.6 µs … 363.6 µs) 289.7 µs 322.7 µs 351.9 µs
+verify with fromJson          368.7 µs         2,712 (335.6 µs … 882.1 µs) 365.5 µs 698.0 µs 882.1 µs
 
 
 file:///home/runner/work/nostr-library-benchmarks/nostr-library-benchmarks/rx-nostr-crypto.bench.ts
-benchmark                      time (avg)        iter/s             (min … max)       p75       p99      p995
-------------------------------------------------------------------------------- -----------------------------
-getPublicKey                  212.72 µs/iter       4,701.1 (193.31 µs … 687.51 µs) 205.29 µs 414.55 µs 436.44 µs
-getEventHash                    9.45 µs/iter     105,786.5     (6.5 µs … 63.56 µs) 10.22 µs 22.74 µs 25.47 µs
-getSignature                    1.93 ms/iter         518.2     (1.75 ms … 3.41 ms) 1.95 ms 2.93 ms 3.35 ms
-seckeySigner                  206.62 µs/iter       4,839.8 (189.22 µs … 520.19 µs) 200.9 µs 365.22 µs 380.39 µs
-seckeySigner.getPublicKey        556 ns/iter   1,798,561.2      (301 ns … 3.67 µs) 581 ns 2.38 µs 2.67 µs
-seckeySigner.signEvent          1.88 ms/iter         532.9     (1.75 ms … 2.28 ms) 1.9 ms 2.04 ms 2.05 ms
-verify                          1.46 ms/iter         685.6     (1.33 ms … 2.56 ms) 1.47 ms 2.01 ms 2.56 ms
+
+benchmark                   time/iter (avg)        iter/s      (min … max)           p75      p99     p995
+--------------------------- ----------------------------- --------------------- --------------------------
+getPublicKey                       221.7 µs         4,511 (194.3 µs …   1.3 ms) 217.2 µs 463.8 µs 497.6 µs
+getEventHash                         9.7 µs       103,000 (  5.6 µs …  75.0 µs)  10.5 µs  27.7 µs  33.3 µs
+getSignature                         1.9 ms         518.3 (  1.8 ms …   3.5 ms)   1.9 ms   3.4 ms   3.4 ms
+seckeySigner                       209.4 µs         4,775 (192.3 µs … 589.2 µs) 208.4 µs 385.9 µs 400.0 µs
+seckeySigner.getPublicKey          722.0 ns     1,385,000 (350.0 ns …  27.3 µs) 731.0 ns   2.7 µs   3.2 µs
+seckeySigner.signEvent               1.9 ms         526.8 (  1.8 ms …   2.2 ms)   1.9 ms   2.1 ms   2.1 ms
+verify                               1.5 ms         678.1 (  1.3 ms …   2.7 ms)   1.5 ms   1.6 ms   2.7 ms
 ```
 
 ### Go
